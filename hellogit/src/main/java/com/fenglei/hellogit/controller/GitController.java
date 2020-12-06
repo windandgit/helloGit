@@ -14,6 +14,7 @@ public class GitController {
     public String testController(){
 
         System.out.println("git 测试数据");
+        System.out.println("git 修改测试");
 
         return "请求收到了，这是给你的响应";
     }
