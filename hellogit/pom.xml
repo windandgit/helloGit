@@ -32,6 +32,32 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.25</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!--springboot整合mybatis的依赖-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        <!--添加mybatis分页插件支持 根据需求可要可不要-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.2.1</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -47,6 +73,19 @@
     </dependencyManagement>
 
     <build>
+
+        <!-- 如果不添加此配置，mybatis的mapper.xml文件都会被漏掉 -->
+            <resources>
+                <resource>
+                    <directory>src/main/java</directory><!--所在的目录-->
+                    <includes><!--包括目录下的.properties,.xml文件都会扫描到-->
+                        <include>**/*.properties</include>
+                        <include>**/*.xml</include>
+                    </includes>
+                    <filtering>false</filtering>
+                </resource>
+            </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
